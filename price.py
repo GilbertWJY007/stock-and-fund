@@ -12,14 +12,25 @@ class price:
     def get_data(filename):
         csvFile = open(filename, "r")
         reader = csv.reader(csvFile)
-        daily_data = []
+        price_list = []
         for info in reader:
             if reader.line_num == 1:
                 continue
-            daily_data.append(info)
+            price_list.append(price.parse_price(info))
         csvFile.close()
-        return daily_data
+        return price_list
 
+    def parse_price(curr_line):
+        date = curr_line[0]
+        open = curr_line[1]
+        close = curr_line[5]
+        volunm = curr_line[6]
+        newPrice = price(date, open,)
+        return newPrice
+
+
+
+        return "price object"
 '''
 ['Date',       'Open',       'High',       'Low',        'Close',      'Adj Close',  'Volume'  ]
 ['2020-12-21', '666.239990', '668.500000', '646.070007', '649.859985', '649.859985', '58045300']

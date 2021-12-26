@@ -4,7 +4,7 @@ class stock:
         self.price_list = price_list
         pass
 
-    def get_return(csv, period):
+    def get_return(period):
         pass
 
     def get_beta(period):
