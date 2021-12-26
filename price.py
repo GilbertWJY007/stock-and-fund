@@ -20,12 +20,10 @@ class price:
         csvFile.close()
         return price_list
 
-    def parse_price(curr_line):
-        date = curr_line[0]
-        open = curr_line[1]
-        close = curr_line[5]
-        volunm = curr_line[6]
-        newPrice = price(date, open,)
+    def parse_price(filename,curr_line):
+        symbol = filename
+        date = float(curr_line[0])
+        newPrice = price(symbol,date,float(curr_line[1]),float(curr_line[5]),int(curr_line[6]))
         return newPrice
 
 
@@ -35,8 +33,6 @@ class price:
 ['Date',       'Open',       'High',       'Low',        'Close',      'Adj Close',  'Volume'  ]
 ['2020-12-21', '666.239990', '668.500000', '646.070007', '649.859985', '649.859985', '58045300']
 '''
-line = ['2020-12-21', '666.239990', '668.500000', '646.070007', '649.859985', '649.859985', '58045300']
-print(float(line[1]))
 
 
 
