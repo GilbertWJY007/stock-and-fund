@@ -1,30 +1,31 @@
 import csv
 
-class price:
+class Price:
     def __init__(self, symbol, date, open, close, volume):
         self.symbol = symbol
         self.open = open
         self.close = close #用adj close
         self.date = date
         self.volume = volume
-        pass
+        #pass
     
-    def get_data(filename):
-        csvFile = open(filename, "r")
-        reader = csv.reader(csvFile)
-        price_list = []
-        for info in reader:
-            if reader.line_num == 1:
-                continue
-            price_list.append(price.parse_price(info))
-        csvFile.close()
-        return price_list
+    # def get_data(filename):
+    #     csvFile = open(filename, "r")
+    #     reader = csv.reader(csvFile)
+    #     price_list = []
+    #     for info in reader:
+    #         if reader.line_num == 1:
+    #             continue
+    #         newname = filename.replace(' ','-').split('.')
+    #         symbol = newname[0]
+    #         price_list.append(Price.parse_price(symbol,info))
+    #     csvFile.close()
+    #     return price_list
 
-    def parse_price(filename,curr_line):
-        symbol = filename
-        date = float(curr_line[0])
-        newPrice = price(symbol,date,float(curr_line[1]),float(curr_line[5]),int(curr_line[6]))
-        return newPrice
+    # def parse_price(symbol,curr_line):
+    #     date = curr_line[0]
+    #     newPrice = Price(symbol,date,float(curr_line[1]),float(curr_line[5]),int(curr_line[6]))
+    #     return newPrice
 
 
 
