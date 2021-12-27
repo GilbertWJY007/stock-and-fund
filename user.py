@@ -1,5 +1,6 @@
 import csv
 from price import Price
+import datetime
 
 price_list = []#后面能直接用 原处在line9
 
@@ -12,7 +13,7 @@ def get_data(filename):
                 continue
             newname = filename.replace(' ','-').split('.')
             symbol = newname[0]
-            price_list.append(Price.parse_price(symbol,info))
+            price_list.append(parse_price(symbol,info))
         csvFile.close()
         return price_list
 
@@ -34,3 +35,8 @@ def run():
 
 if __name__ == '__main__':
     run()
+
+date = datetime('2020-12-21')
+print(date.year())
+
+
