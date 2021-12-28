@@ -1,6 +1,7 @@
 import datetime
 from typing import List
 from price import price
+from datetime import date
 
 class stock:
     def __init__(self, symbol: str, price_list: List[price]):
@@ -8,11 +9,20 @@ class stock:
         self.price_list = price_list
 
 
-    def get_return(price_list: List[price]):
-        
-        pass
+    def get_return(prices: List[price]):
+        close_price = prices[len(prices)-1].close
+        open_price = prices[1].open
+        return (close_price - open_price)/open_price
 
-        
+    def get_daily_returns(prices: List[price]):
+        i = 1
+        returns = []
+        while i < len(prices):
+            r = (prices[i].close - prices[i].open)/prices[i].open
+            returns.append(r)
+            i +=1
+        return returns
+
 
     def get_beta(price_list: List[price]):
         pass
@@ -28,18 +38,23 @@ class stock:
                 target_list.append(self.price_list[i])
             i += 1
         return target_list
-                
-        # if start_date.isoweekday == 6 :
-        #     new_start_date = start_date + datetime.timedelta(days=2)
-        # if start_date.isoweekday == 7 :
-        #     new_start_date = start_date + datetime.timedelta(days=1)
-        # if end_date.isoweekday == 6:
-        #     new_end_date = end_date - datetime.timedelta(days=1)
-        # if end_date.isoweekday == 7:
-        #     new_end_date = end_date - datetime.timedelta(days=2)
-        # new_start_date = start_date
-        # new_end_date = end_date
+    
+    def get_monthly_prices(self, month: int, year: int):
+        i = 1
+        target_list = [price]
+        while i < len(self.price_list):
+            if self.price_list[i].date.month == month and self.price_list[i].date.year == year:
+                target_list.append(self.price_list[i])
+            i += 1
+        return target_list
 
-        
+    def get_annual_prices(self, year: int):
+        i = 1
+        target_list = [price]
+        while i < len(self.price_list):
+            if self.price_list[i].date.year == year:
+                target_list.append(self.price_list[i])
+            i += 1
+        return target_list
 
 
