@@ -8,21 +8,24 @@ class stock:
         self.price_list = price_list
 
 
-    def get_return(period):
+    def get_return(price_list: List[price]):
+        
         pass
 
-    def get_beta(period):
+        
+
+    def get_beta(price_list: List[price]):
         pass
 
 
 
     def get_period_prices(self,start_date: datetime.date, end_date: datetime.date):
-        i = 0
+        i = 1
         target_list = [price]
         while i < len(self.price_list):
-            p = self.price_list[i]
-            if (p.date > (start_date - datetime.timedelta(day = 1)) and p.date < (end_date + datetime.timedelta(day = 1))):
-                target_list.append(p)
+            a_day = datetime.timedelta(days = 1)
+            if (self.price_list[i].date > (start_date - a_day) and self.price_list[i].date < (end_date + a_day)):
+                target_list.append(self.price_list[i])
             i += 1
         return target_list
                 
