@@ -1,45 +1,16 @@
-import csv
+from datetime import datetime
 
-class Price:
-    def __init__(self, symbol, date, open, close, volume):
+
+class price:
+    def __init__(self, symbol, date:datetime.date, open, close, volume):
         self.symbol = symbol
+        self.date = date
         self.open = open
         self.close = close #用adj close
-        self.date = date
-        self.volume = volume
-        #pass
-    
-    # def get_data(filename):
-    #     csvFile = open(filename, "r")
-    #     reader = csv.reader(csvFile)
-    #     price_list = []
-    #     for info in reader:
-    #         if reader.line_num == 1:
-    #             continue
-    #         newname = filename.replace(' ','-').split('.')
-    #         symbol = newname[0]
-    #         price_list.append(Price.parse_price(symbol,info))
-    #     csvFile.close()
-    #     return price_list
+        self.volume = volume 
 
-    # def parse_price(symbol,curr_line):
-    #     date = curr_line[0]
-    #     newPrice = Price(symbol,date,float(curr_line[1]),float(curr_line[5]),int(curr_line[6]))
-    #     return newPrice
+    def toString(self):
+        return "date: [{}], open: [{}], close: [{}], volume[{}]".format(self.date,self.open,self.close,self.volume)
 
-
-
-
-'''
-['Date',       'Open',       'High',       'Low',        'Close',      'Adj Close',  'Volume'  ]
-['2020-12-21', '666.239990', '668.500000', '646.070007', '649.859985', '649.859985', '58045300']
-'''
-
-
-
-    
-
-
-
-
-
+    def get_date(self) -> datetime.date:
+        return self.date
