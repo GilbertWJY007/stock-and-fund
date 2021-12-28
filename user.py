@@ -27,10 +27,10 @@ def run():
     #only for test
     price_list = get_data("TSLA.csv")
     stock_curr = stock("TSLA", price_list)
-    print(price_list[1].date)
-    i = 0 
+    print(price_list[1].date)#price_list[1].date
+    i = 1#0 
     while i < len(price_list):
-        temp = price(price_list[i].symbol,price_list[i])
+        #temp = price(price_list[i].symbol,price_list[i])
         print(price_list[i].get_date())
         i += 1
     # date1 = date_generator('2021-01-02')
