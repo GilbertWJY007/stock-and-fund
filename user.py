@@ -29,11 +29,12 @@ def run():
     stock_curr = stock("TSLA", price_list)
     date1 = date_generator('2021-01-05')
     date2 = date_generator('2021-01-06')
-    lst = stock_curr.get_period_prices(date1, date2)
+    lst = stock_curr.get_period_prices(date1,date2)
+    print(stock.get_return(lst))
     i = 1
     while i < len(lst):
         print(lst[i].toString())
-        i += 1
+        i+=1
 
 def date_generator(day: str):
         return datetime.date.fromisoformat(day)
