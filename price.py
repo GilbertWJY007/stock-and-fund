@@ -1,7 +1,6 @@
 from datetime import datetime
 
-
-class price:
+class Price:
     def __init__(self, symbol, date:datetime.date, open, close, volume):
         self.symbol = symbol
         self.date = date
